@@ -9,7 +9,7 @@ target_dir = /script
 port = 8080
 ip = \*
 
-run: kaggle
+run: native
 
 spark:
 	docker run --rm -it --name=kaggle -p=$(port):$(port) -p=4040:4040 -v=$(current_dir):$(target_dir) -w=$(target_dir) jupyter/pyspark-notebook jupyter notebook --no-browser --notebook-dir=$(target_dir) --allow-root --port=$(port) --ip=$(ip)
@@ -19,3 +19,6 @@ kaggle:
 
 tensor:
 	docker run --rm -it --name=tensorflow -p=$(port):$(port) -v=$(current_dir):$(target_dir) -w=$(target_dir) tensorflow/tensorflow jupyter notebook --no-browser --notebook-dir=$(target_dir) --allow-root --port=$(port) --ip=$(ip)
+
+native:
+	jupyter notebook --no-browser --allow-root --port=$(port) --ip=$(ip)
