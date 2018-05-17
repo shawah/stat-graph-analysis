@@ -21,4 +21,4 @@ tensor:
 	docker run --rm -it --name=tensorflow -p=$(port):$(port) -v=$(current_dir):$(target_dir) -w=$(target_dir) tensorflow/tensorflow jupyter notebook --no-browser --notebook-dir=$(target_dir) --allow-root --port=$(port) --ip=$(ip)
 
 native:
-	jupyter notebook --no-browser --allow-root --port=$(port) --ip=$(ip)
+	jupyter notebook --allow-root --port=$(port) --ip=$(ip)
